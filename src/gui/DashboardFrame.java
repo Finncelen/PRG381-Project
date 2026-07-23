@@ -1,12 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+    package gui;
 
-/**
- *
- * @author BC-STUDENT
- */
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 public class DashboardFrame extends javax.swing.JFrame {
 
     /**
@@ -26,16 +28,17 @@ public class DashboardFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 655, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 576, Short.MAX_VALUE)
         );
 
         pack();
@@ -75,7 +78,86 @@ public class DashboardFrame extends javax.swing.JFrame {
             }
         });
     }
+    private void initializeFrame() {
+        setTitle("Cleaning Inventory System - Dashboard");
+        setSize(700, 450);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setResizable(false);
+    }
+
+    private void createComponents() {
+        JLabel lblTitle = new JLabel(
+                "University Cleaning Inventory System",
+                SwingConstants.CENTER
+        );
+
+        lblTitle.setFont(new Font("Arial", Font.BOLD, 24));
+
+        JPanel buttonPanel = new JPanel(new GridLayout(3, 2, 15, 15));
+
+        JButton btnMaterials = new JButton("Manage Materials");
+        JButton btnSuppliers = new JButton("Manage Suppliers");
+        JButton btnCleaners = new JButton("Manage Cleaners");
+        JButton btnIssueStock = new JButton("Issue Stock");
+        JButton btnReports = new JButton("View Reports");
+        JButton btnLogout = new JButton("Logout");
+
+        buttonPanel.add(btnMaterials);
+        buttonPanel.add(btnSuppliers);
+        buttonPanel.add(btnCleaners);
+        buttonPanel.add(btnIssueStock);
+        buttonPanel.add(btnReports);
+        buttonPanel.add(btnLogout);
+
+        btnMaterials.addActionListener(event ->
+                new MaterialsFrame().setVisible(true)
+        );
+
+        btnSuppliers.addActionListener(event ->
+                new SuppliersFrame().setVisible(true)
+        );
+
+        btnCleaners.addActionListener(event ->
+                new CleanersFrame().setVisible(true)
+        );
+
+        btnIssueStock.addActionListener(event ->
+                new IssueStockFrame().setVisible(true)
+        );
+
+        btnReports.addActionListener(event ->
+                new ReportsFrame().setVisible(true)
+        );
+
+        btnLogout.addActionListener(event -> logout());
+
+        JPanel outerPanel = new JPanel(new BorderLayout(20, 20));
+        outerPanel.setBorder(
+                javax.swing.BorderFactory.createEmptyBorder(30, 40, 30, 40)
+        );
+
+        outerPanel.add(lblTitle, BorderLayout.NORTH);
+        outerPanel.add(buttonPanel, BorderLayout.CENTER);
+
+        add(outerPanel);
+    }
+
+    private void logout() {
+        int choice = JOptionPane.showConfirmDialog(
+                this,
+                "Are you sure you want to log out?",
+                "Logout",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (choice == JOptionPane.YES_OPTION) {
+            new LoginFrame().setVisible(true);
+            dispose();
+        }
+    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-}
+
