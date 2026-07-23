@@ -6,7 +6,7 @@ package reports;
 
 /**
  *
- * @author BC-STUDENT
+ * @author Finncelen
  */
 public class ReportGenerator {
     
