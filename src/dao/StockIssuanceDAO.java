@@ -8,6 +8,6 @@ package dao;
  *
  * @author Finncelen
  */
-public class StockInssuanceDAO {
+public class StockIssuanceDAO {
     
 }
