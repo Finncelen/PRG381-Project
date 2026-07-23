@@ -6,7 +6,7 @@ package gui;
 
 /**
  *
- * @author BC-STUDENT
+ * @author Finncelen
  */
 public class RegisterFrame {
     

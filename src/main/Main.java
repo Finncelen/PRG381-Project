@@ -6,7 +6,7 @@ package main;
 
 /**
  *
- * @author BC-STUDENT
+ * @author Finncelen
  */
 public class Main {
     

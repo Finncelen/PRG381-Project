@@ -6,7 +6,7 @@ package validation;
 
 /**
  *
- * @author BC-STUDENT
+ * @author Finncelen
  */
 public class Validation {
     

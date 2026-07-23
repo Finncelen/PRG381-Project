@@ -6,7 +6,7 @@ package dao;
 
 /**
  *
- * @author BC-STUDENT
+ * @author Finncelen
  */
 public class SupplierDAO {
     

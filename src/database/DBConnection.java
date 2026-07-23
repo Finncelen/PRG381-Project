@@ -6,7 +6,7 @@ package database;
 
 /**
  *
- * @author BC-STUDENT
+ * @author Finncelen
  */
 public class DBConnection {
     
