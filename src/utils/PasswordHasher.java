@@ -6,7 +6,7 @@ package utils;
 
 /**
  *
- * @author BC-STUDENT
+ * @author Finncelen
  */
 public class PasswordHasher {
     
