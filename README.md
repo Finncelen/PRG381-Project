@@ -1,278 +1,156 @@
-# University Cleaning Inventory & Issuance System
+# Cleaning Inventory System
 
-## Project Overview
+A Java Swing desktop application developed for managing cleaning inventory within a university environment.
 
-The **University Cleaning Inventory & Issuance System** is a Java Desktop Application developed as part of the Programming 3781 project at Belgium Campus iTversity.
-
-The purpose of the system is to assist university staff with managing cleaning inventory efficiently. The application allows authorized users to manage cleaning materials, suppliers, cleaners, stock issuances, and inventory records through an easy-to-use desktop interface.
-
-The project follows **Track B**, which requires the use of Java Swing, Core Java, Object-Oriented Programming (OOP), JDBC, and a relational database.
+The system allows administrators to manage suppliers, cleaners, cleaning materials, stock issuance and reports through an easy-to-use graphical interface.
 
 ---
 
-# Features
+## Features
 
-## User Authentication
-
-* User Login
-* User Registration
-* Password Validation
-* User Role Management
-* Secure Logout
-
-## Dashboard
-
-* View total cleaning materials
-* View total cleaners
-* View low stock items
-* View recent stock issuances
-* Quick navigation to system modules
-
-## Materials Management
-
-* Add materials
-* View materials
-* Update material information
-* Delete materials
-* Search materials
-* Track available quantities
-* Monitor reorder levels
-
-## Suppliers Management
-
-* Add suppliers
-* View suppliers
-* Update supplier details
-* Delete suppliers
-* Store supplier contact information
-
-## Cleaners Management
-
-* Add cleaners
-* View cleaners
-* Update cleaner information
-* Delete cleaners
-* Assign cleaners to departments (optional)
-
-## Stock Issuance
-
-* Issue cleaning materials to cleaners
-* Automatically deduct stock quantities
-* Prevent issuing more stock than available
-* Maintain issuance history
-
-## Reports
-
-* Inventory Report
-* Low Stock Report
-* Issuance History Report
-* Material Usage Report
+- User Login and Registration
+- Supplier Management
+- Cleaner Management
+- Material Management
+- Stock Issuance
+- Inventory Tracking
+- Low Stock Monitoring
+- Reporting
+- Input Validation
+- Password Hashing
+- SQLite Database Integration
 
 ---
 
-# Technologies Used
+## Technologies Used
 
-* Java
-* Java Swing
-* Core Java
-* JDBC
-* PostgreSQL (or Derby/JavaDB)
-* NetBeans IDE
-* GitHub
-
----
-
-# Object-Oriented Programming Principles
-
-The project demonstrates the four core OOP principles:
-
-### Encapsulation
-
-Private class variables with public getters and setters.
-
-### Inheritance
-
-Classes such as `Cleaner` inherit from the `Person` class.
-
-### Abstraction
-
-Abstract classes and methods are used where appropriate.
-
-### Polymorphism
-
-Overridden methods demonstrate different behaviors across subclasses.
+- Java
+- Java Swing
+- SQLite
+- JDBC
+- Apache NetBeans
+- Git & GitHub
 
 ---
 
-# Project Structure
+## Database
 
-```text
-UniversityCleaningInventory
+This project uses **SQLite** as its database.
 
+SQLite was chosen because it is lightweight, serverless and stores all data in a single database file, making the application easy to run without installing or configuring a database server.
+
+The database contains the following tables:
+
+- Users
+- Suppliers
+- Cleaners
+- Materials
+- Stock Issuances
+
+---
+
+## Project Structure
+
+```
+src/
 │
-├── src
-│
-├── database
-│      DBConnection.java
-│
-├── model
-│      Person.java
-│      User.java
-│      Cleaner.java
-│      Supplier.java
-│      Material.java
-│      StockIssuance.java
-│
-├── dao
-│      UserDAO.java
-│      MaterialDAO.java
-│      SupplierDAO.java
-│      CleanerDAO.java
-│      StockDAO.java
-│
-├── gui
-│      LoginForm.java
-│      RegisterForm.java
-│      Dashboard.java
-│      MaterialForm.java
-│      SupplierForm.java
-│      CleanerForm.java
-│      StockIssueForm.java
-│      ReportsForm.java
-│
-├── validation
-│      Validation.java
-│
-└── Main.java
+├── dao/
+├── database/
+├── exceptions/
+├── gui/
+├── main/
+├── models/
+├── reports/
+├── utils/
+└── validation/
 ```
 
 ---
 
-# Database Tables
+## Main Screens
 
-The system uses the following database tables:
-
-* users
-* materials
-* suppliers
-* cleaners
-* stock_issuance
+- Login
+- Register
+- Dashboard
+- Suppliers
+- Cleaners
+- Materials
+- Issue Stock
+- Reports
 
 ---
 
-# Installation
+## Inventory Features
 
-1. Clone the repository.
+The system allows users to:
 
-```bash
-[git clone <repository-url>](https://github.com/Mogau-art/PRG381-Project.git)
+- Add new suppliers
+- Register cleaners
+- Add and update cleaning materials
+- Issue stock to cleaners
+- Monitor available stock levels
+- Generate reports
+- Track low stock items using reorder levels
+
+---
+
+## Security
+
+Passwords are stored using hashing before being saved to the database.
+
+Input validation is implemented throughout the application to help ensure data integrity.
+
+---
+
+## How to Run
+
+### Requirements
+
+- Java JDK 17 or later
+- Apache NetBeans
+- SQLite JDBC Driver
+
+### Steps
+
+1. Clone the repository
+
+```
+git clone 
 ```
 
-2. Open the project in NetBeans.
+2. Open the project in Apache NetBeans.
 
-3. Create the project database.
+3. Add the SQLite JDBC driver to the project libraries.
 
-4. Import the SQL database script.
+4. Place the `cleaning_inventory.db` file inside the project's `database` folder.
 
-5. Update the database connection inside `DBConnection.java`.
-
-6. Add the PostgreSQL JDBC Driver.
-
-7. Build and run the project.
+5. Build and run the project.
 
 ---
 
-# Business Rules
+## Future Improvements
 
-The system enforces the following business rules:
-
-* Duplicate usernames are not allowed.
-* Duplicate email addresses are not allowed.
-* Required fields must be completed.
-* Negative stock quantities are not allowed.
-* Stock cannot be issued if insufficient inventory is available.
-* Inventory is automatically updated after every stock issuance.
-* Meaningful validation and error messages are displayed to users.
+- Password recovery
+- Advanced search and filtering
+- Export reports to PDF
+- User activity logs
+- Email notifications for low stock
+- Dashboard statistics
 
 ---
 
-# Reports
+## Author
 
-The system generates the following reports:
-
-* Inventory Report
-* Low Stock Report
-* Issuance History Report
-* Material Usage Report
-
-These reports provide staff with an overview of inventory levels and stock movement.
-
----
-
-# Exception Handling
-
-The application includes exception handling for:
-
-* Database connection errors
-* SQL exceptions
-* Invalid user input
-* Number format exceptions
-* Null pointer exceptions
-
-This improves system reliability and user experience.
-
----
-
-# Future Improvements
-
-Possible future enhancements include:
-
-* Barcode scanner integration
-* QR Code support
-* Email notifications for low stock
-* Export reports to PDF
-* Export reports to Excel
-* Automatic supplier ordering
-* Audit logs
-* User profile management
-* Dark mode
-
----
-
-# My  Responsibilities
-
-| Responsibility                                           |
-| -------------------------------------------------------- |
-| Database, Authentication, Dashboard                      |
-| Materials Management and Suppliers                       |
-| Cleaners Management and Stock Issuance                   |
-| Reports, Validation, OOP, Exception Handling and Testing |
-
----
-
-# Testing
-
-The system was tested to verify:
-
-* User authentication
-* CRUD functionality
-* Database connectivity
-* Inventory management
-* Stock deductions
-* Report generation
-* Input validation
-* Exception handling
-
----
-
-# Author
-
-Finncelen
-
-Programming 3781 Project
+**Megan Heather Wathen**
 
 Belgium Campus iTversity
 
-University Cleaning Inventory & Issuance System
+PRG381 Project
 
 2026
+
+---
+
+## License
+
+This project was developed for educational purposes as part of the PRG381 module at Belgium Campus iTversity.
