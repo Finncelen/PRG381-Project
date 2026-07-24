@@ -247,10 +247,9 @@ Potential future enhancements include:
 
 ---
 
-## Team Members
+## Programmer
 
 - Megan Wathen
-- *(Add remaining group members here)*
 
 ---
 
