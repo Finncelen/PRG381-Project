@@ -115,7 +115,7 @@ Input validation is implemented throughout the application to help ensure data i
 1. Clone the repository
 
 ```
-git clone 
+git clone https://github.com/Finncelen/PRG381-Project.git
 ```
 
 2. Open the project in Apache NetBeans.
